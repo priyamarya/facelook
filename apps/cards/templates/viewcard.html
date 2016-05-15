@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+{%block content%}
+<div class='container col-sx-3 col-sm-6' >
+	
+		{%if card%}
+			{%if card.v_type == 'public' %}
+				<h1>{{card.name}}</h1>
+				{%if card.image%}
+					<p><img src="/media/{{card.image}}" width="600" height="300">
+					</p>
+
+				{%endif%}
+					<b>Uploaded On:- {{card.uplaod_date}}| by {{card.user}} | {{card.v_type}} card
+					<br>
+					<br>
+					
+					Card Description:- {{card.desc}}
+					<p><form action="/cards/likes/{{card.id}}/" method="POST">{%csrf_token%}
+					<input class="btn btn-default"  type="submit" value='Likes: {{card.likes}}' name="like">
+					</form></p>
+					</b>{{mess}}
+			
+			{%else %}
+				
+					<h1>{{card.name}}</h1>
+					{%if card.image%}
+						<p><img src="/media/{{card.image}}" width="600" height="300">
+						</p>
+					{%endif%}
+					<b>Uploaded On:- {{card.uplaod_date}}| by {{card.user}} | {{card.v_type}} card
+					<br>
+					<br>
+					Card Description:- {{card.desc}}
+					<p>This card is {{card.v_type}}</p>
+
+					<p><a href="" >Likes:- {{likes}}
+					</b> 
+					{{mess}}
+				
+						
+			{%endif%}
+		{%else%}
+			{{message}}	
+		{%endif%}
+</div>	
+
+
+{%endblock%}
+
+
+
+
+

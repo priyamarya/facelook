@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{%block styles%}
+
+<link href='{% static "css/home.css" %}' rel="stylesheet">
+{%endblock%}
+
+{% block jumbotron%}
+
+
+
+<div class="jumbotron">
+<h1>Welcome to FaceLook</h1>
+<p class="para1">This page is the home page of the project Facelook.</p>
+<p>To know about any features of this site, Please click any link below..</p>
+ 
+      </div>
+
+{% endblock %}
+
+{% block content %}
+
+<div class='row' align="center">
+  <h1><p >
+    <a class="btn btn-lg btn-primary" href='{%url "login"%}' role="button" >Log In</a>
+   
+  
+    <a class="btn btn-lg btn-primary" href="/users/logout/" role="button" >Log Out</a>
+  </p> </h1>
+</div>
+{% endblock %}
+
+

@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+{%block content%}
+{%if cards.count > 0%}
+
+	<div class="row">
+		<h1><i>Public Cards</i></h1>
+		{%for card in cards %}	
+			{%if card.v_type == 'public'%}
+				<div class="col-md-4 col-sm-6">
+				<div class="thumbnail">
+					<a href="/cards/all/{{card.id}}">
+					<p><img src="/media/{{card.image}}" width="350" height="300"></p>
+					</a>
+
+					<a href="{{card.id}}">
+					<p><h3>{{card.name}} </h3></p></a>
+					<p><h3>{{card.desc|truncatewords:3}}</h3></p>
+					<p><a href="{{card.id}}" class="btn btn-primary" role="button">View</a> </p>
+
+				</div>
+				</div>
+			
+			{%endif%}
+		{%endfor%}
+	</div>
+	<div class="row">
+	<hr>	
+	<h1><i>Private Cards</i></h1>
+		{%for card in cards %}
+
+			{%if card.v_type == 'private'%}
+
+				{%if card.user.name == user.username%}
+					<div class="col-md-4">
+					<div class="thumbnail">
+						<a href="/cards/all/{{card.id}}">
+						<p><img src="/media/{{card.image}}" width="350" height="300"></p>
+						</a>
+
+						<a href="{{card.id}}">
+						<p><h3>{{card.name}} </h3></p></a>
+						<p><h3>{{card.desc|truncatewords:3}}</h3></p>
+						<p><a href="{{card.id}}" class="btn btn-primary" role="button">View</a> </p>
+
+					</div>
+					</div>
+				{%endif%}
+			{%endif%}
+		{%endfor%}
+	</div>
+{%else%}
+	<h1>bye</h1>
+{%endif%}
+
+{%endblock%}
+

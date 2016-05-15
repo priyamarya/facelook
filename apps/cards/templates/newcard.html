@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{%block content%}
+<div class="row">
+     <div class="col-sm-3 col-xs-3">
+          <form class="form"  method="POST" action='' enctype="multipart/form-data">{% csrf_token%}
+
+               <label class="sr-only">Name</label>
+               <input type="text" class="form-control" placeholder="Name" name="name" value="" id="name"></input><br>
+               <label class="sr-only">Image</label>
+               <input type="file" class="form-control" placeholder="Image" name="image" value="" id="image"></input><br>
+               <label class="sr-only">Describe</label>
+               <input type="text" class="form-control" name="desc" placeholder="Describe" value="" id="desc"></input>
+               <br>
+               <label class="sr-only">Visibilty</label>
+               <input type="text" class="form-control" placeholder="public/private" name="v_type" value="" id="v_type">
+               </input>
+               <br>
+               <input class="btn btn-default"  type="submit" value='Submit'>
+
+          </form>
+          
+     </div>
+</div>
+
+<b><i>{{message}}</i></b>
+	
+
+
+
+{%endblock%}
